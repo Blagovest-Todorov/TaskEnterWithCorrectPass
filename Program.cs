@@ -6,27 +6,30 @@ namespace EnterCorrectPassword
     {
         static void Main(string[] args)
         {
-            string username = Console.ReadLine();                                                           
+            string username = Console.ReadLine();
+            //first string this is username we read to generate pass                                                 
             char[] pass = new char[username.Length];
 
             for (int i = 0, j = username.Length - 1; i < username.Length; i++, j--)
-            {                
-                pass[i] = username[j]; 
+            {
+                pass[i] = username[j];  //We initalize array with correct reveresed password
             }
-            
-            string reversed = string.Join("", pass); 
+
+            string reversed = string.Join("", pass);   // Here we create the password to Log in! 
 
             while (true)
             {
-                string correctPassword = Console.ReadLine(); 
-                
+                string correctPassword = Console.ReadLine();
+                // Here we call User to enter correct pass that we compare 
+                // with genereated revered pass from reversed array
+
                 if (correctPassword == reversed)
                 {
                     Console.WriteLine($"User {username} logged in.");
                     break;
                 }
 
-                Console.WriteLine("Incorrect password. Try again.");               
+                Console.WriteLine("Incorrect password. Try again.");
             }
         }
     }
